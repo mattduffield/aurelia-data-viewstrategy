@@ -1,4 +1,4 @@
-# aurelia-jade-viewstrategy
+# aurelia-data-viewstrategy
 
 This library is an addon to the [Aurelia](http://www.aurelia.io/) platform and provides `DataView` ViewStrategy class which will allow you to utilize Web API.
 
