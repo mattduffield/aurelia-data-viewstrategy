@@ -1,0 +1,25 @@
+{
+  "name": "aurelia-data-viewstrategy",
+  "version": "0.1.0",
+  "description": "An implementation of the ViewStrategy that supports loading of views from a Web API.",
+  "keywords": [
+    "aurelia",
+    "viewstrategy",
+    "data",
+    "compiled"
+  ],
+  "homepage": "http://github.com/mattduffield/aurelia-data-viewstrategy",
+  "license": "MIT",
+  "authors": [
+    "Matthew Kevin Duffield <matt.duffield@gmail.com> (http://duffieldconsulting.com)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mattduffield/aurelia-data-viewstrategy"
+  },
+  "dependencies": {
+    "aurelia-binding": "^0.3.2",
+    "aurelia-metadata": "^0.3.1",
+    "aurelia-http-client": "^0.5.1"
+  }
+}
