@@ -1,62 +1,18 @@
 # aurelia-jade-viewstrategy
 
-This library is an addon to the [Aurelia](http://www.aurelia.io/) platform and provides `JadeView` and `JadeConventionView` ViewStrategy classes which will allow
-you to utilise `.jade` and `.jade.js` compiled files easily, along with the SystemJS `jade` plugin (installed as dependency).
+This library is an addon to the [Aurelia](http://www.aurelia.io/) platform and provides `DataView` ViewStrategy class which will allow you to utilize Web API.
 
 ## Usage
-To utilise this `ViewStrategy`, override the `getViewStrategy` on your ViewModel. Here's an example using `JadeConventionView`:
+To utilise this `ViewStrategy`, override the `getViewStrategy` on your ViewModel. Here's an example using `DataView`:
 
 ```js
-import {JadeConventionView} from 'aurelia-jade-viewstrategy';
+import {DataView} from 'aurelia-data-viewstrategy';
 
 class ViewModel {
 	getViewStrategy() {
-		return new JadeConventionView();
+		return new DataView('');
 	}
 }
-```
-
-If you don't want to retrieve the view by convention, but rather using a defined URL, use `JadeView` instead:
-
-```js
-import {JadeView} from 'aurelia-jade-viewstrategy';
-
-class ViewModel {
-	getViewStrategy() {
-		return new JadeView('./template.jade');
-	}
-}
-```
-
-Finally, if you are using pre-compiled `jade.js` files (i.e. you've pre-compiled the `.jade` files into their associated template functions) and want to use those instead, you can tell the instance not to use the SystemJS loader and instead load the view as a pure JS module using the `isCompiled` flag.
-
-```js
-import {JadeView} from 'aurelia-jade-viewstrategy';
-
-class ViewModel {
-	getViewStrategy() {
-		// JadeView example
-		return new JadeView('./template.jade', true);
-		
-		// ...or with JadeConventionView
-		return new JadeConventionView(true);
-	}
-}
-```
-
-You can also utilise it with CustomElements by registering the ViewStrategy instance as Metadata:
-
-```js
-import {JadeConventionView} from 'aurelia-jade-viewstrategy';
-
-export default class PageCustomElement {
-	static metadata() {
-		return Behavior
-			.customElement('page')
-			.add( new JadeConventionView() )
-	}
-};
-
 ```
 
 ## Dependencies
