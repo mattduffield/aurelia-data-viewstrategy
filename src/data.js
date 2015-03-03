@@ -2,6 +2,7 @@ import {ViewStrategy} from 'aurelia-templating';
 import {HttpClient} from 'aurelia-http-client';
 
 var hasTemplateElement = ('content' in document.createElement('template'));
+var url = 'http://localhost:3001/api/users';
 
 /**
 Loads a given view by Web API. 
@@ -12,10 +13,9 @@ Loads a given view by Web API.
 @param [isCompiled] {Boolean} If true, will not attempt to use SystemJS plugin loader (i.e. no '!' suffix)
 **/
 export default class DataView extends ViewStrategy {
-  static inject() { return [HttpClient]; }
-	constructor(viewUrl, isCompiled, http) {
+	constructor(viewUrl, isCompiled) {
 		this.viewUrl = DataView.parseViewUrl(viewUrl, isCompiled);
-		this.http = http;
+		this.http = new HttpClient();
 	}
 
 	/**
@@ -27,9 +27,9 @@ export default class DataView extends ViewStrategy {
 	@return {Promise} Promise returned from `ViewEngine.loadTemplateResources`
 	**/
 	loadViewFactory(viewEngine, options) {
-		return this.http.get(url).then(response => {
+		return this.http.get(this.viewUrl).then(response => {
 			// Evaluate the client template method and generate a `DocumentFragment`
-			template = DataView.generateFragment(response.response);
+			var template = DataView.generateFragment(response.response);
 
 			// Taken straight from the `viewEngine.loadViewFactory` method
 			return viewEngine.loadTemplateResources(this.viewUrl, template, this.moduleId).then(resources => {

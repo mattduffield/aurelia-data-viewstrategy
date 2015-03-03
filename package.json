@@ -28,7 +28,8 @@
     "dependencies": {
       "aurelia-binding": "github:aurelia/binding@^0.3.2",
       "aurelia-http-client": "github:aurelia/http-client@^0.5.1",
-      "aurelia-metadata": "github:aurelia/metadata@^0.3.1"
+      "aurelia-metadata": "github:aurelia/metadata@^0.3.1",
+      "mattduffield/aurelia-data-viewstrategy": "github:mattduffield/aurelia-data-viewstrategy@master"
     }
   },
   "devDependencies": {
