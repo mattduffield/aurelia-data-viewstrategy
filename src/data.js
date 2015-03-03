@@ -2,7 +2,7 @@ import {ViewStrategy} from 'aurelia-templating';
 import {HttpClient} from 'aurelia-http-client';
 
 var hasTemplateElement = ('content' in document.createElement('template'));
-var url = 'http://localhost:3001/api/users';
+var url = 'http://localhost:3001/api/';
 
 /**
 Loads a given view by Web API. 
@@ -27,7 +27,7 @@ export default class DataView extends ViewStrategy {
 	@return {Promise} Promise returned from `ViewEngine.loadTemplateResources`
 	**/
 	loadViewFactory(viewEngine, options) {
-		return this.http.get(this.viewUrl).then(response => {
+		return this.http.get(url + this.viewUrl).then(response => {
 			// Evaluate the client template method and generate a `DocumentFragment`
 			var template = DataView.generateFragment(response.response);
 
